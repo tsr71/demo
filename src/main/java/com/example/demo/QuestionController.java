@@ -8,10 +8,7 @@ import javax.annotation.PostConstruct;
 import com.example.demo.db.Question;
 import com.example.demo.db.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -38,7 +35,7 @@ public class QuestionController {
     }
 
     @RequestMapping(value = "/questions", method = POST)
-    public void addQuestion(Question question) {
+    public void addQuestion(@RequestBody Question question) {
         repo.insert(question);
     }
 
