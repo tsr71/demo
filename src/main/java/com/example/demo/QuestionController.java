@@ -23,16 +23,14 @@ public class QuestionController {
     private QuestionRepository repo;
 
     @PostConstruct
-    public void init() {
-
-    }
+    public void init() {}
 
     @RequestMapping("/questions")
     public List<Question> getQuestions() {
         return repo.findAll();
     }
 
-    @RequestMapping("/questions")
+    @RequestMapping("/questions/")
     public List<Question> searchQuestion(@RequestParam("search") String search) {
 
         return repo.searchQuestion(search);
@@ -46,7 +44,7 @@ public class QuestionController {
 
     @RequestMapping(value = "/questions", method = PUT)
     public void updateQuestion(Question question) {
-        //TODO
+        repo.save(question);
     }
 
     @RequestMapping(value = "/questions", method = DELETE)

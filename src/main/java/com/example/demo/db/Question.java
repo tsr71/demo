@@ -1,6 +1,7 @@
 package com.example.demo.db;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -15,30 +16,21 @@ public class Question implements Serializable {
     private String question;
     private List<Answer> answers;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
+    public Question(String question) {
         this.question = question;
+        this.answers = new ArrayList<Answer>();
     }
 
-    public List<Answer> getAnswers() {
-        return answers;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
-    }
+    public String getQuestion() { return question; }
+    public void setQuestion(String question) { this.question = question; }
+
+    public List<Answer> getAnswers() { return answers; }
+    public void setAnswers(List<Answer> answers) { this.answers = answers; }
 
     public void addAnswer(Answer answer) {this.answers.add(answer);}
     public void deleteAnswer(Answer answer) {this.answers.remove(answer);}
+
 }
